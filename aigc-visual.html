@@ -1,0 +1,335 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AIGC视觉创作作品集 - AI绘画、概念设计、数字艺术">
+  <title>AIGC视觉创作 | CREATIVE STUDIO</title>
+  <link rel="stylesheet" href="css/style.css?v=20260930">
+  <style>
+    /* AIGC视觉专属色调 - 青色 */
+    :root {
+      --accent-color: #00fff7;
+      --accent-glow: rgba(0, 255, 247, 0.6);
+    }
+    
+    .portfolio-hero-category {
+      border-color: var(--neon-cyan);
+      color: var(--neon-cyan);
+      background: rgba(0, 255, 247, 0.1);
+    }
+    
+    .portfolio-hero-title {
+      background: linear-gradient(135deg, #00fff7 0%, #00d4ff 50%, #00fff7 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  </style>
+</head>
+<body>
+  <!-- 加载动画 -->
+  <div class="loader">
+    <div class="loader-ring"></div>
+  </div>
+
+  <!-- 全息网格背景 -->
+  <canvas id="particles-canvas"></canvas>
+  <div id="grid-overlay"></div>
+
+  <!-- 导航栏 -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">LYP<span style="color: var(--neon-cyan)">.</span>个人作品集</a>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">首页</a></li>
+        <li class="nav-dropdown">
+          <a href="#" class="nav-link active">作品展示 <span class="dropdown-arrow">▼</span></a>
+          <div class="dropdown-menu">
+            <a href="commercial-design.html" class="dropdown-item">商业设计</a>
+            <a href="advertising-design.html" class="dropdown-item">广告设计</a>
+            <a href="aigc-visual.html" class="dropdown-item">AIGC视觉创作</a>
+            <a href="aigc-comic.html" class="dropdown-item">AIGC短漫剧</a>
+            <a href="tvc-advertisement.html" class="dropdown-item">TVC广告</a>
+          </div>
+        </li>
+        <li><a href="index.html#about" class="nav-link">关于我</a></li>
+        <li><a href="index.html#contact" class="nav-link">联系我</a></li>
+      </ul>
+      <div class="mobile-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 作品Hero区域 -->
+  <section class="portfolio-hero">
+    <div class="container">
+      <span class="portfolio-hero-category reveal">◈ AIGC视觉创作</span>
+      <h1 class="portfolio-hero-title reveal">AIGC视觉艺术</h1>
+      <p class="portfolio-hero-desc reveal">
+        探索人工智能与艺术的无限可能，用AI工具创造前所未有的视觉体验。
+        涵盖概念艺术、场景设计、角色创作等多元AIGC创作领域。
+      </p>
+    </div>
+  </section>
+
+  <!-- 作品展示 -->
+  <section style="padding-top: 2rem;">
+    <div class="container">
+      <h2 class="section-title reveal">漫剧角色系列</h2>
+      
+      <div class="gallery-horizontal">
+        <div class="gallery-item-horizontal reveal">
+          <img src="manju/pic-08.png" alt="漫剧角色" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">漫剧角色</h4>
+          </div>
+        </div>
+        <div class="gallery-item-horizontal reveal">
+          <img src="manju/pic-09.png" alt="漫剧角色" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">漫剧角色</h4>
+          </div>
+        </div>
+        <div class="gallery-item-horizontal reveal">
+          <img src="manju/pic-01.png" alt="漫剧角色" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">漫剧角色</h4>
+          </div>
+        </div>
+        <div class="gallery-item-horizontal reveal">
+          <img src="manju/pic-02.png" alt="漫剧角色" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">漫剧角色</h4>
+          </div>
+        </div>
+        <div class="gallery-item-horizontal reveal">
+          <img src="manju/pic-03.png" alt="漫剧角色" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">漫剧角色</h4>
+          </div>
+        </div>
+        <div class="gallery-item-horizontal reveal">
+          <img src="manju/pic-04.png" alt="漫剧角色" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">漫剧角色</h4>
+          </div>
+        </div>
+        <div class="gallery-item-horizontal reveal">
+          <img src="manju/pic-05.png" alt="漫剧角色" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">漫剧角色</h4>
+          </div>
+        </div>
+        <div class="gallery-item-horizontal reveal">
+          <img src="manju/pic-06.png" alt="漫剧角色" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">漫剧角色</h4>
+          </div>
+        </div>
+        <div class="gallery-item-horizontal reveal">
+          <img src="manju/pic-07.png" alt="漫剧角色" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">漫剧角色</h4>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="section-title reveal" style="margin-top: 4rem;">手机应用图标设计</h2>
+
+      <div class="gallery-vertical">
+        <div class="gallery-item-vertical reveal">
+          <img src="shangye/充气蓬松手机图标设计.jpeg" alt="手机应用图标" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">手机应用图标</h4>
+          </div>
+        </div>
+        <div class="gallery-item-vertical reveal">
+          <img src="shangye/夏日清凉水晶手机图标设计.jpeg" alt="手机应用图标" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">手机应用图标</h4>
+          </div>
+        </div>
+        <div class="gallery-item-vertical reveal">
+          <img src="shangye/毛茸茸手机图标设计.jpeg" alt="手机应用图标" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">手机应用图标</h4>
+          </div>
+        </div>
+        <div class="gallery-item-vertical reveal">
+          <img src="shangye/系列图标设计需求.jpeg" alt="手机应用图标" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">手机应用图标</h4>
+          </div>
+        </div>
+        <div class="gallery-item-vertical reveal">
+          <img src="shangye/宝石版.png" alt="手机应用图标" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">手机应用图标</h4>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="section-title reveal" style="margin-top: 4rem;">字体设计系列</h2>
+
+      <div class="gallery-horizontal">
+        <div class="gallery-item-horizontal reveal">
+          <img src="ziti/01.png" alt="字体设计" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">字体设计</h4>
+          </div>
+        </div>
+        <div class="gallery-item-horizontal reveal">
+          <img src="ziti/02.png" alt="字体设计" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">字体设计</h4>
+          </div>
+        </div>
+        <div class="gallery-item-horizontal reveal">
+          <img src="ziti/03.png" alt="字体设计" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">字体设计</h4>
+          </div>
+        </div>
+        <div class="gallery-item-horizontal reveal">
+          <img src="ziti/04.png" alt="字体设计" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">字体设计</h4>
+          </div>
+        </div>
+        <div class="gallery-item-horizontal reveal">
+          <img src="ziti/05.png" alt="字体设计" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">字体设计</h4>
+          </div>
+        </div>
+        <div class="gallery-item-horizontal reveal">
+          <img src="ziti/06.png" alt="字体设计" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">字体设计</h4>
+          </div>
+        </div>
+        <div class="gallery-item-horizontal reveal">
+          <img src="ziti/07.png" alt="字体设计" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">字体设计</h4>
+          </div>
+        </div>
+        <div class="gallery-item-horizontal reveal">
+          <img src="ziti/08.png" alt="字体设计" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">字体设计</h4>
+          </div>
+        </div>
+        <div class="gallery-item-horizontal reveal">
+          <img src="ziti/09.png" alt="字体设计" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">字体设计</h4>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="section-title reveal" style="margin-top: 4rem;">超级符号</h2>
+
+      <div class="gallery-square">
+        <div class="gallery-item-square reveal">
+          <img src="shangye/即梦.png" alt="超级符号" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">超级符号</h4>
+          </div>
+        </div>
+        <div class="gallery-item-square reveal">
+          <img src="shangye/苹果.jpeg" alt="超级符号" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">超级符号</h4>
+          </div>
+        </div>
+        <div class="gallery-item-square reveal">
+          <img src="shangye/华为1.png" alt="超级符号" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">超级符号</h4>
+          </div>
+        </div>
+        <div class="gallery-item-square reveal">
+          <img src="shangye/抖音1.png" alt="超级符号" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">超级符号</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 更多作品引导 -->
+  <section>
+    <div class="container" style="text-align: center;">
+      <h2 class="section-title reveal">探索更多作品</h2>
+      <p class="section-subtitle reveal">发现其他创意领域的精彩作品</p>
+      
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;" class="reveal">
+        <a href="commercial-design.html" class="btn-neon">商业设计 →</a>
+        <a href="advertising-design.html" class="btn-neon">广告设计 →</a>
+        <a href="aigc-comic.html" class="btn-neon">AIGC短漫剧 →</a>
+        <a href="tvc-advertisement.html" class="btn-neon">TVC广告 →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h3>CREATIVE.STUDIO</h3>
+          <p>专注于商业设计、广告创意、AIGC视觉艺术与AIGC漫剧制作。用科技与艺术的碰撞，打造具有未来感的视觉体验。</p>
+          <div class="social-links">
+            <a href="https://v.douyin.com/aJxr5zO6Y_8/ 3@8.com :5pm" class="social-link">抖音</a>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h4>作品分类</h4>
+          <ul>
+            <li><a href="commercial-design.html">商业设计</a></li>
+            <li><a href="advertising-design.html">广告设计</a></li>
+            <li><a href="aigc-visual.html">AIGC视觉创作</a></li>
+            <li><a href="aigc-comic.html">AIGC短漫剧</a></li>
+            <li><a href="tvc-advertisement.html">TVC广告</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>快速链接</h4>
+          <ul>
+            <li><a href="index.html">首页</a></li>
+            <li><a href="index.html#about">关于我</a></li>
+            <li><a href="index.html#categories">作品展示</a></li>
+            <li><a href="index.html#contact">联系我</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>联系方式</h4>
+          <ul>
+            <li><a href="mailto:hello@creativestudio.com">18438353842@163.com</a></li>
+            <li><a href="tel:+8618438353842">+86 184 3835 3842</a></li>
+            <li>中国 · 郑州</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 CREATIVE.STUDIO. All rights reserved. | 用创意点亮未来</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 返回顶部 -->
+  <a href="#" class="back-to-top">↑</a>
+
+  <script src="js/main.js?v=20260930"></script>
+</body>
+</html>

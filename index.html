@@ -1,0 +1,1416 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="未来科技风个人作品集 - 商业设计、广告设计、AIGC视觉创作">
+  <title>CREATIVE STUDIO | 未来科技风作品集</title>
+  <link rel="stylesheet" href="css/style.css?v=20260930">
+  <style>
+    /* ===== 首页专属样式 ===== */
+    
+    /* Hero 轮播区域 */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 600px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .carousel {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .carousel-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.8s ease, transform 0.8s ease;
+      transform: scale(1.05);
+    }
+
+    .carousel-slide.active {
+      opacity: 1;
+      transform: scale(1);
+      z-index: 1;
+    }
+
+    .carousel-slide-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .carousel-slide-1 .carousel-slide-bg {
+      background: linear-gradient(135deg, #0a0a0f 0%, #1a1a3e 50%, #0a1628 100%);
+    }
+
+    .carousel-slide-2 .carousel-slide-bg {
+      background: linear-gradient(135deg, #0a0a0f 0%, #2d1b4e 50%, #1a0a2e 100%);
+    }
+
+    .carousel-slide-3 .carousel-slide-bg {
+      background: linear-gradient(135deg, #0a0a0f 0%, #0d2d3e 50%, #0a1e2e 100%);
+    }
+
+    .carousel-slide::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, transparent 0%, rgba(10, 10, 15, 0.6) 100%);
+      z-index: 1;
+    }
+
+    .carousel-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 900px;
+      padding: 0 2rem;
+    }
+
+    .carousel-subtitle {
+      font-size: 1rem;
+      color: var(--neon-cyan);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.8s ease forwards 0.3s;
+    }
+
+    .carousel-title {
+      font-size: 4rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      letter-spacing: 4px;
+    }
+
+    .carousel-title .gradient-text {
+      background: var(--gradient-neon);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 0 40px var(--neon-glow-blue);
+    }
+
+    .carousel-desc {
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+      margin-bottom: 2.5rem;
+      line-height: 1.8;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.8s ease forwards 0.5s;
+    }
+
+    .carousel-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.8s ease forwards 0.7s;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* 轮播控制按钮 */
+    .carousel-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50px;
+      height: 50px;
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(0, 212, 255, 0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--neon-blue);
+      cursor: pointer;
+      z-index: 10;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .carousel-nav:hover {
+      background: rgba(0, 212, 255, 0.2);
+      border-color: var(--neon-blue);
+      box-shadow: 0 0 20px var(--neon-glow-blue);
+    }
+
+    .carousel-prev {
+      left: 2rem;
+    }
+
+    .carousel-next {
+      right: 2rem;
+    }
+
+    .carousel-indicators {
+      position: absolute;
+      bottom: 3rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 0.75rem;
+      z-index: 10;
+    }
+
+    .carousel-indicator {
+      width: 30px;
+      height: 3px;
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border-radius: 2px;
+    }
+
+    .carousel-indicator.active {
+      background: var(--neon-blue);
+      box-shadow: 0 0 10px var(--neon-glow-blue);
+      width: 50px;
+    }
+
+    /* 滚动提示 */
+    .scroll-hint {
+      position: absolute;
+      bottom: 6rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-secondary);
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      animation: bounce 2s infinite;
+    }
+
+    .scroll-hint-mouse {
+      width: 24px;
+      height: 38px;
+      border: 2px solid var(--neon-blue);
+      border-radius: 12px;
+      position: relative;
+    }
+
+    .scroll-hint-mouse::before {
+      content: '';
+      position: absolute;
+      top: 6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      height: 8px;
+      background: var(--neon-blue);
+      border-radius: 2px;
+      animation: scrollWheel 1.5s infinite;
+    }
+
+    @keyframes scrollWheel {
+      0%, 100% { opacity: 1; transform: translateX(-50%) translateY(0); }
+      50% { opacity: 0.3; transform: translateX(-50%) translateY(10px); }
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(10px); }
+    }
+
+    /* ===== 关于我区域 ===== */
+    .about-section {
+      position: relative;
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-columns: 2fr 3fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .about-image {
+      position: relative;
+      aspect-ratio: 4/5;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(0, 212, 255, 0.2);
+    }
+
+    .about-image::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: var(--gradient-neon);
+      border-radius: 16px;
+      z-index: -1;
+      opacity: 0.3;
+      filter: blur(20px);
+      animation: glowPulse 3s ease-in-out infinite;
+    }
+
+    @keyframes glowPulse {
+      0%, 100% { opacity: 0.2; }
+      50% { opacity: 0.5; }
+    }
+
+    .about-image-inner {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-image-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .about-image-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 2rem 1.5rem 1.5rem;
+      background: linear-gradient(to top, rgba(10, 12, 20, 0.95) 0%, rgba(10, 12, 20, 0.6) 70%, transparent 100%);
+    }
+
+    .about-pinyin {
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      color: var(--neon-cyan);
+      text-transform: uppercase;
+      margin-bottom: 0.25rem;
+    }
+
+    .about-name {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.25rem;
+      letter-spacing: 2px;
+    }
+
+    .about-title {
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+    }
+
+    .about-decor {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      border: 2px solid var(--neon-blue);
+      opacity: 0.25;
+      z-index: 2;
+    }
+
+    .about-decor-1 {
+      top: 15px;
+      right: 15px;
+      border-left: none;
+      border-bottom: none;
+    }
+
+    .about-decor-2 {
+      bottom: 15px;
+      left: 15px;
+      border-right: none;
+      border-top: none;
+    }
+
+    .about-text {
+      padding-top: 0.5rem;
+    }
+
+    .about-header {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: 3px;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(0, 212, 255, 0.15);
+    }
+
+    .about-block {
+      margin-bottom: 2rem;
+    }
+
+    .about-block-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--neon-blue);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .about-block-title .dot {
+      font-size: 0.6rem;
+      color: var(--neon-cyan);
+    }
+
+    .about-block-en {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      letter-spacing: 2px;
+      font-weight: 400;
+      margin-left: 0.5rem;
+    }
+
+    .about-block p {
+      color: var(--text-secondary);
+      line-height: 1.8;
+      font-size: 0.95rem;
+    }
+
+    .about-job {
+      margin-bottom: 1rem;
+      padding-left: 1rem;
+      border-left: 2px solid rgba(0, 212, 255, 0.2);
+    }
+
+    .about-job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .about-job-period {
+      font-size: 0.8rem;
+      color: var(--neon-cyan);
+      font-weight: 500;
+    }
+
+    .about-job-company {
+      font-size: 0.9rem;
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    .about-job-role {
+      font-size: 0.85rem;
+      color: var(--neon-blue);
+      margin-bottom: 0.5rem;
+    }
+
+    .about-job-desc {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .about-bottom {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 2rem;
+      margin-top: 1rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(0, 212, 255, 0.1);
+    }
+
+    .about-edu-period {
+      font-size: 0.8rem;
+      color: var(--neon-cyan);
+      margin-bottom: 0.25rem;
+    }
+
+    .about-edu-major {
+      font-size: 0.9rem;
+      color: var(--text-primary);
+      margin-bottom: 0.25rem;
+    }
+
+    .about-edu-school {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    .about-tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .about-tool {
+      padding: 0.3rem 0.8rem;
+      background: rgba(0, 212, 255, 0.06);
+      border: 1px solid rgba(0, 212, 255, 0.15);
+      border-radius: 50px;
+      font-size: 0.75rem;
+      color: var(--neon-cyan);
+      transition: all 0.3s ease;
+    }
+
+    .about-tool:hover {
+      background: rgba(0, 212, 255, 0.15);
+      border-color: var(--neon-blue);
+      box-shadow: 0 0 8px rgba(0, 212, 255, 0.15);
+    }
+
+    /* ===== 作品分类入口 ===== */
+    .categories-section {
+      background: var(--bg-secondary);
+    }
+
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1.5rem;
+    }
+
+    .category-card {
+      position: relative;
+      aspect-ratio: 3/4;
+      border-radius: 16px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border: 1px solid rgba(0, 212, 255, 0.1);
+      text-decoration: none;
+      display: block;
+    }
+
+    .category-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(180deg, transparent 30%, rgba(0, 0, 0, 0.9) 100%);
+      z-index: 1;
+      transition: all 0.4s ease;
+    }
+
+    .category-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border: 2px solid transparent;
+      border-radius: 16px;
+      transition: all 0.4s ease;
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    .category-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-neon-hover);
+    }
+
+    .category-card:hover::after {
+      border-color: var(--neon-blue);
+      box-shadow: inset 0 0 30px rgba(0, 212, 255, 0.1);
+    }
+
+    .category-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.5s ease;
+    }
+
+    .category-card:hover .category-bg {
+      transform: scale(1.1);
+    }
+
+    .category-bg-1 { background: linear-gradient(135deg, #0a1628 0%, #1a2a4a 50%, #0d2137 100%); }
+    .category-bg-2 { background: linear-gradient(135deg, #1a0a28 0%, #3a1a4a 50%, #2d0d37 100%); }
+    .category-bg-3 { background: linear-gradient(135deg, #0a2828 0%, #1a4a4a 50%, #0d3737 100%); }
+    .category-bg-4 { background: linear-gradient(135deg, #28280a 0%, #4a4a1a 50%, #37370d 100%); }
+    .category-bg-5 { background: linear-gradient(135deg, #281a0a 0%, #4a3a1a 50%, #372d0d 100%); }
+
+    .category-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 2rem 1.5rem;
+      z-index: 2;
+    }
+
+    .category-icon {
+      width: 50px;
+      height: 50px;
+      border: 2px solid var(--neon-blue);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--neon-blue);
+      transition: all 0.3s ease;
+    }
+
+    .category-card:hover .category-icon {
+      background: var(--neon-blue);
+      color: var(--bg-primary);
+      box-shadow: 0 0 20px var(--neon-glow-blue);
+    }
+
+    .category-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+      transition: color 0.3s ease;
+    }
+
+    .category-card:hover .category-title {
+      color: var(--neon-cyan);
+    }
+
+    .category-count {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    .category-arrow {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      width: 35px;
+      height: 35px;
+      background: rgba(0, 212, 255, 0.1);
+      border: 1px solid var(--neon-blue);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--neon-blue);
+      z-index: 2;
+      opacity: 0;
+      transform: translateX(-10px);
+      transition: all 0.3s ease;
+    }
+
+    .category-card:hover .category-arrow {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* ===== 精选作品 ===== */
+    .featured-section {
+      position: relative;
+    }
+
+    /* ===== 联系区域 ===== */
+    .contact-section {
+      background: var(--bg-secondary);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-section::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(0, 212, 255, 0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .contact-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-info h3 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      letter-spacing: 1px;
+    }
+
+    .contact-info h3 span {
+      background: var(--gradient-neon);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .contact-info p {
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+
+    .contact-methods {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .contact-method {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.5rem;
+      background: rgba(0, 212, 255, 0.05);
+      border: 1px solid rgba(0, 212, 255, 0.1);
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .contact-method:hover {
+      border-color: var(--neon-blue);
+      background: rgba(0, 212, 255, 0.1);
+      transform: translateX(5px);
+      box-shadow: 0 0 15px rgba(0, 212, 255, 0.1);
+    }
+
+    .contact-method-icon {
+      width: 45px;
+      height: 45px;
+      background: rgba(0, 212, 255, 0.1);
+      border: 1px solid var(--neon-blue);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      color: var(--neon-blue);
+      flex-shrink: 0;
+    }
+
+    .contact-method-text h4 {
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+      color: var(--text-primary);
+    }
+
+    .contact-method-text p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin: 0;
+    }
+
+    .contact-form {
+      background: var(--card-bg);
+      border: 1px solid rgba(0, 212, 255, 0.1);
+      border-radius: 16px;
+      padding: 2rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      letter-spacing: 0.5px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.9rem 1rem;
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(0, 212, 255, 0.2);
+      border-radius: 8px;
+      color: var(--text-primary);
+      font-size: 1rem;
+      font-family: inherit;
+      transition: all 0.3s ease;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--neon-blue);
+      box-shadow: 0 0 15px rgba(0, 212, 255, 0.15);
+      background: rgba(0, 212, 255, 0.05);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .submit-btn {
+      width: 100%;
+      justify-content: center;
+    }
+
+    /* ===== 响应式 ===== */
+    @media (max-width: 1200px) {
+      .categories-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .about-content,
+      .contact-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .about-image {
+        max-width: 400px;
+        margin: 0 auto;
+      }
+
+      .about-bottom {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .carousel-title {
+        font-size: 3rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .carousel-title {
+        font-size: 2rem;
+        letter-spacing: 2px;
+      }
+
+      .carousel-desc {
+        font-size: 1rem;
+      }
+
+      .carousel-nav {
+        width: 40px;
+        height: 40px;
+      }
+
+      .carousel-prev {
+        left: 1rem;
+      }
+
+      .carousel-next {
+        right: 1rem;
+      }
+
+      .categories-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-header {
+        font-size: 1.6rem;
+      }
+
+      .about-bottom {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
+
+      .scroll-hint {
+        bottom: 5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .categories-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .category-card {
+        aspect-ratio: 16/9;
+      }
+
+      .carousel-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .about-name {
+        font-size: 1.4rem;
+      }
+
+      .about-header {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body class="loaded">
+  <!-- 加载动画 -->
+  
+
+  <!-- 全息网格背景 -->
+  <canvas id="particles-canvas" width="606" height="614"></canvas>
+  <div id="grid-overlay"></div>
+
+  <!-- 导航栏 -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">LYP<span style="color: var(--neon-cyan)">.</span>个人作品集</a>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link active">首页</a></li>
+        <li class="nav-dropdown">
+          <a href="#" class="nav-link">作品展示 <span class="dropdown-arrow">▼</span></a>
+          <div class="dropdown-menu">
+            <a href="commercial-design.html" class="dropdown-item">商业设计</a>
+            <a href="advertising-design.html" class="dropdown-item">广告设计</a>
+            <a href="aigc-visual.html" class="dropdown-item">AIGC视觉创作</a>
+            <a href="aigc-comic.html" class="dropdown-item">AIGC短漫剧</a>
+            <a href="tvc-advertisement.html" class="dropdown-item">TVC广告</a>
+          </div>
+        </li>
+        <li><a href="#about" class="nav-link">关于我</a></li>
+        <li><a href="#contact" class="nav-link">联系我</a></li>
+      </ul>
+      <div class="mobile-toggle" style="position: relative;">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero 轮播区域 -->
+  <section class="hero">
+    <div class="carousel">
+      <!-- 轮播图1 -->
+      <div class="carousel-slide carousel-slide-1 prev">
+        <div class="carousel-slide-bg"></div>
+      </div>
+      <!-- 轮播图2 -->
+      <div class="carousel-slide carousel-slide-2 active">
+        <div class="carousel-slide-bg"></div>
+      </div>
+      <!-- 轮播图3 -->
+      <div class="carousel-slide carousel-slide-3">
+        <div class="carousel-slide-bg"></div>
+      </div>
+
+      <!-- 轮播内容 -->
+      <div class="carousel-content">
+        <p class="carousel-subtitle">WELCOME TO CREATIVE STUDIO</p>
+        <h1 class="carousel-title">
+          <span class="gradient-text" id="typewriter-text">创意无限</span>
+        </h1>
+        <p class="carousel-desc">
+          专注于商业设计、广告创意与AIGC视觉艺术<br>
+          用科技与艺术的碰撞，打造未来感视觉体验
+        </p>
+        <div class="carousel-buttons">
+          <a href="#categories" class="btn-neon btn-neon-filled">探索作品</a>
+          <a href="#contact" class="btn-neon">联系合作</a>
+        </div>
+      </div>
+
+      <!-- 轮播控制 -->
+      <button class="carousel-nav carousel-prev">◀</button>
+      <button class="carousel-nav carousel-next">▶</button>
+      
+      <div class="carousel-indicators">
+        <button class="carousel-indicator"></button>
+        <button class="carousel-indicator active"></button>
+        <button class="carousel-indicator"></button>
+      </div>
+    </div>
+
+    <!-- 滚动提示 -->
+    <div class="scroll-hint">
+      <div class="scroll-hint-mouse"></div>
+      <span>SCROLL DOWN</span>
+    </div>
+  </section>
+
+<!-- 关于我 -->
+
+<section class="about-section" id="about">
+  <div class="container">
+      <h2 class="section-title reveal">关于我</h2>
+      <p class="section-subtitle reveal">用创意定义未来，用设计传递价值</p>
+    <div class="container">
+      <div class="about-content">
+        <!-- 左侧：照片 + 名字 -->
+        <div class="about-image reveal-left">
+          <div class="about-image-inner">
+            <div class="about-decor about-decor-1"></div>
+            <div class="about-decor about-decor-2"></div>
+            <img src="assets/life.png" alt="个人照片">
+            <div class="about-image-overlay">
+              <p class="about-pinyin">YA PENG · LIU</p>
+              <h3 class="about-name">刘亚鹏</h3>
+              <p class="about-title">AIGC CREATOR / VISUAL DESIGNER</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 右侧：个人信息 -->
+        <div class="about-text reveal-right">
+          <h2 class="about-header">个人介绍</h2>
+
+          <div class="about-block">
+            <h4 class="about-block-title"><span class="dot">●</span> 个人优势 <span class="about-block-en">CORE STRENGTHS</span></h4>
+            <p>
+              熟悉 AI 图像生成、AI 商业海报、人物写真、产品视觉、IP 形象、分镜图及 AI 视频创作流程，能够结合设计审美与 AI 工具完成高效率商业视觉产出。
+            </p>
+          </div>
+
+          <div class="about-block">
+            <h4 class="about-block-title"><span class="dot">●</span> 工作经历 <span class="about-block-en">WORK EXPERIENCE</span></h4>
+            <div class="about-job">
+              <div class="about-job-header">
+                <span class="about-job-period">2025.08-2026.09</span>
+                <span class="about-job-company">郑州漫吖文化传媒有限公司</span>
+              </div>
+              <p class="about-job-role">AIGC抽卡师</p>
+              <p class="about-job-desc">依据漫剧分镜脚本开展 AI 抽卡工作，编写优化提示词，利用 AI 工具生成角色、场景镜头素材，筛选校验画面质量，修复 AI 生成瑕疵；整理归档素材，标注可用镜头，处理提示词修改；配合剪辑完成素材输出，熟悉 AI 漫剧完整制作流程。</p>
+            </div>
+            <div class="about-job">
+              <div class="about-job-header">
+                <span class="about-job-period">2023.07 - 2025.7</span>
+                <span class="about-job-company">青海嘉源文化传媒有限公司</span>
+              </div>
+              <p class="about-job-role">平面广告设计师</p>
+              <p class="about-job-desc">承担会展、赛事、品牌营销类项目平面视觉设计，独立设计活动主视觉、海报、展板、宣传物料、标识标牌及新媒体配图；对接客户与制作方，把控设计文件、印刷工艺及落地效果；配合项目提案，持续优化设计方案，保障项目按时交付。</p>
+            </div>
+          </div>
+
+          <div class="about-bottom">
+            <div class="about-bottom-item">
+              <h4 class="about-block-title"><span class="dot">●</span> 教育经历 <span class="about-block-en">EDUCATION</span></h4>
+              <p class="about-edu-period">2019 - 2023</p>
+              <p class="about-edu-major">软件工程专业</p>
+              <p class="about-edu-school">青海师范大学 · 本科</p>
+            </div>
+            <div class="about-bottom-item">
+              <h4 class="about-block-title"><span class="dot">●</span> 软件工具 <span class="about-block-en">SOFTWARE & TOOLS</span></h4>
+              <div class="about-tools">
+                <span class="about-tool">Midjourney</span>
+                <span class="about-tool">Nano banana</span>
+                <span class="about-tool">即梦</span>
+                <span class="about-tool">可灵</span>
+                <span class="about-tool">Premiere</span>
+                <span class="about-tool">Photoshop</span>
+                <span class="about-tool">剪映</span>
+                <span class="about-tool">小云雀</span>
+                <span class="about-tool">OiiOii</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <!-- 作品分类入口 -->
+  <section class="categories-section" id="categories">
+    <div class="container">
+      <h2 class="section-title reveal">作品分类</h2>
+      <p class="section-subtitle reveal">五大创作领域，探索无限可能</p>
+      
+      <div class="categories-grid">
+        <a href="commercial-design.html" class="category-card reveal">
+          <div class="category-bg category-bg-1">
+            <img src="shangye/柠檬树精灵.png" alt="IP形象" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div class="category-arrow">→</div>
+          <div class="category-content">
+            <div class="category-icon">◆</div>
+            <h3 class="category-title">商业设计</h3>
+            <p class="category-count">14 个作品</p>
+          </div>
+        </a>
+        
+        <a href="advertising-design.html" class="category-card reveal">
+          <div class="category-bg category-bg-2">
+            <img src="advertising-desion/张艺兴-梅赛德斯.png" alt="海报设计" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div class="category-arrow">→</div>
+          <div class="category-content">
+            <div class="category-icon">✦</div>
+            <h3 class="category-title">广告设计</h3>
+            <p class="category-count">28 个作品</p>
+          </div>
+        </a>
+        
+        <a href="aigc-visual.html" class="category-card reveal">
+          <div class="category-bg category-bg-3">
+            <img src="shangye/即梦.png" alt="超级符号" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div class="category-arrow">→</div>
+          <div class="category-content">
+            <div class="category-icon">◈</div>
+            <h3 class="category-title">AIGC视觉创作</h3>
+            <p class="category-count">27 个作品</p>
+          </div>
+        </a>
+        
+        <a href="aigc-comic.html" class="category-card reveal">
+          <div class="category-bg category-bg-4">
+            <img src="manju/fkbm.jpeg" alt="漫剧" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div class="category-arrow">→</div>
+          <div class="category-content">
+            <div class="category-icon">❖</div>
+            <h3 class="category-title">AIGC短漫剧</h3>
+            <p class="category-count">26 个作品</p>
+          </div>
+        </a>
+        
+        <a href="tvc-advertisement.html" class="category-card reveal">
+          <div class="category-bg category-bg-5">
+            <img src="assets/lvcha.jpeg" alt="tvc" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div class="category-arrow">→</div>
+          <div class="category-content">
+            <div class="category-icon">▶</div>
+            <h3 class="category-title">TVC广告</h3>
+            <p class="category-count">6 个作品</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 精选作品 -->
+  <section class="featured-section">
+    <div class="container">
+      <h2 class="section-title reveal">精选作品</h2>
+      <p class="section-subtitle reveal">匠心之作，创意呈现</p>
+      
+      <div class="works-grid">
+        <div class="work-card reveal">
+          <div class="work-card-image">
+            <img src="shangye/柠檬树精灵.png" alt="IP形象" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div class="work-card-content">
+            <span class="work-card-category">商业设计</span>
+            <h3 class="work-card-title">品牌视觉资产设计</h3>
+            <p class="work-card-desc">原创品牌 IP 角色及启动页视觉设计，打造高记忆点形象，支撑品牌传播与全场景应用。</p>
+          </div>
+          <div class="work-card-overlay">
+            <a href="commercial-design.html" class="view-btn">查看详情 →</a>
+          </div>
+        </div>
+        
+        <div class="work-card reveal">
+          <div class="work-card-image">
+            <img src="banner/番石榴.png" alt="水果广告" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div class="work-card-content">
+            <span class="work-card-category">广告设计</span>
+            <h3 class="work-card-title">营销广告设计</h3>
+            <p class="work-card-desc">整合线上线下的全渠道广告创意，传递品牌环保科技理念</p>
+          </div>
+          <div class="work-card-overlay">
+            <a href="advertising-design.html" class="view-btn">查看详情 →</a>
+          </div>
+        </div>
+        
+        <div class="work-card reveal">
+          <div class="work-card-image">
+            <img src="shangye/华为1.png" alt="超级符号" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div class="work-card-content">
+            <span class="work-card-category">AIGC视觉</span>
+            <h3 class="work-card-title">AIGC 创视系列</h3>
+            <p class="work-card-desc">依托 AIGC 工具进行视觉内容创作，探索多元艺术风格，实现概念画面、角色与场景的快速视觉落地。</p>
+          </div>
+          <div class="work-card-overlay">
+            <a href="aigc-visual.html" class="view-btn">查看详情 →</a>
+          </div>
+        </div>
+        
+        <div class="work-card reveal">
+          <div class="work-card-image">
+            <video src="video/comic-01.mp4" poster = "assets/saibo.jpeg" controls style="width:100%;height:100%;object-fit:cover;"></video>
+          </div>
+          <div class="work-card-content">
+            <span class="work-card-category">AIGC短漫剧</span>
+            <h3 class="work-card-title">赛博朋克系列</h3>
+            <p class="work-card-desc">使用 AI 生成的赛博朋克风格城市景观，霓虹灯光与未来建筑的完美融合 。</p>
+          </div>
+          <div class="work-card-overlay">
+            <a href="aigc-comic.html" class="view-btn">查看详情 →</a>
+          </div>
+        </div>
+        
+        <div class="work-card reveal">
+          <div class="work-card-image">
+            <video src = "video/tvc-05.mp4" poster = "assets/lvcha.jpeg" controls style = "width:100%;height:100%;object-fit:cover;"></video>
+          </div>
+          <div class="work-card-content">
+            <span class="work-card-category">TVC广告</span>
+            <h3 class="work-card-title">夏日饮品TVC</h3>
+            <p class="work-card-desc">30秒产品宣传片，用视觉语言诠释科技与生活的完美融合</p>
+          </div>
+          <div class="work-card-overlay">
+            <a href="tvc-advertisement.html" class="view-btn">查看详情 →</a>
+          </div>
+        </div>
+        
+        <div class="work-card reveal">
+          <div class="work-card-image">
+            <img src="banner/深色系珠宝设计banner海报设计.jpeg" alt="珠宝品牌广告" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div class="work-card-content">
+            <span class="work-card-category">商业设计</span>
+            <h3 class="work-card-title">品牌视觉资产设计</h3>
+            <p class="work-card-desc">为品牌打造的视觉升级方案，诠释精致与优雅</p>
+          </div>
+          <div class="work-card-overlay">
+            <a href="commercial-design.html" class="view-btn">查看详情 →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 联系我 -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <h2 class="section-title reveal">联系我</h2>
+      <p class="section-subtitle reveal">期待与您的合作，共创精彩</p>
+      
+      <div class="contact-content">
+        <div class="contact-info reveal-left">
+          <h3>有项目想法？<br><span>让我们聊聊</span></h3>
+          <p>
+            无论是品牌设计、广告创意还是AIGC视觉项目，
+            我都很乐意听取您的想法并提供专业建议。
+            欢迎通过以下方式联系我，期待与您的合作。
+          </p>
+          
+          <div class="contact-methods">
+            <a href="mailto:18438353842@163.com" class="contact-method">
+              <div class="contact-method-icon">✉</div>
+              <div class="contact-method-text">
+                <h4>电子邮箱</h4>
+                <p>18438353842@163.com</p>
+              </div>
+            </a>
+            
+            <a href="tel:+8618438353842" class="contact-method">
+              <div class="contact-method-icon">☎</div>
+              <div class="contact-method-text">
+                <h4>联系电话</h4>
+                <p>+86 184 3835 3842</p>
+              </div>
+            </a>
+            
+            <div class="contact-method">
+              <div class="contact-method-icon">◎</div>
+              <div class="contact-method-text">
+                <h4>工作地点</h4>
+                <p>中国 · 郑州</p>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        
+        <div class="contact-form reveal-right">
+          <form id="contactForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">您的姓名</label>
+                <input type="text" id="name" name="name" placeholder="请输入姓名" required="">
+              </div>
+              <div class="form-group">
+                <label for="email">电子邮箱</label>
+                <input type="email" id="email" name="email" placeholder="请输入邮箱" required="">
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="subject">项目类型</label>
+              <input type="text" id="subject" name="subject" placeholder="如：品牌设计 / 广告创意 / AIGC项目">
+            </div>
+            
+            <div class="form-group">
+              <label for="message">项目描述</label>
+              <textarea id="message" name="message" placeholder="请简要描述您的项目需求..." required=""></textarea>
+            </div>
+            
+            <button type="submit" class="btn-neon btn-neon-filled submit-btn">
+              发送消息 →
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h3>CREATIVE.STUDIO</h3>
+          <p>专注于商业设计、广告创意、AIGC视觉艺术与AIGC漫剧制作。用科技与艺术的碰撞，打造具有未来感的视觉体验。</p>
+          <div class="social-links">
+            <a href="https://v.douyin.com/aJxr5zO6Y_8/ 3@8.com :5pm" class="social-link">抖音</a>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h4>作品分类</h4>
+          <ul>
+            <li><a href="commercial-design.html">商业设计</a></li>
+            <li><a href="advertising-design.html">广告设计</a></li>
+            <li><a href="aigc-visual.html">AIGC视觉创作</a></li>
+            <li><a href="aigc-comic.html">AIGC短漫剧</a></li>
+            <li><a href="tvc-advertisement.html">TVC广告</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>快速链接</h4>
+          <ul>
+            <li><a href="index.html">首页</a></li>
+            <li><a href="#about">关于我</a></li>
+            <li><a href="#categories">作品展示</a></li>
+            <li><a href="#contact">联系我</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>联系方式</h4>
+          <ul>
+            <li><a href="mailto:18438353842@163.com">18438353842@163.com</a></li>
+            <li><a href="tel:+8618438353842">+86 184 3835 3842</a></li>
+            <li>中国 · 郑州</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>© 2026 CREATIVE.STUDIO. All rights reserved. | 用创意点亮未来</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 返回顶部 -->
+  <a href="#" class="back-to-top">↑</a>
+
+  <script src="js/main.js?v=20260930"></script>
+  <script>
+    // 首页专属脚本
+    document.addEventListener('DOMContentLoaded', function() {
+      // 初始化轮播
+      new Carousel({
+        container: '.carousel',
+        autoPlay: true,
+        interval: 5000
+      });
+
+      // 打字机效果
+      const typewriterEl = document.getElementById('typewriter-text');
+      if (typewriterEl) {
+        new Typewriter(typewriterEl, [
+          '创意无限',
+          '视觉先锋',
+          '未来设计',
+          '科技美学'
+        ], {
+          typeSpeed: 150,
+          deleteSpeed: 80,
+          pauseTime: 2500
+        });
+      }
+
+      // 数字计数动画
+      document.querySelectorAll('.stat-number[data-target]').forEach(el => {
+        new Counter(el, el.getAttribute('data-target'), 2000);
+      });
+
+      // 联系表单提交
+      const contactForm = document.getElementById('contactForm');
+      if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const btn = this.querySelector('.submit-btn');
+          const originalText = btn.textContent;
+          btn.textContent = '发送中...';
+          btn.disabled = true;
+          
+          setTimeout(() => {
+            btn.textContent = '✓ 发送成功！';
+            setTimeout(() => {
+              btn.textContent = originalText;
+              btn.disabled = false;
+              contactForm.reset();
+            }, 2000);
+          }, 1500);
+        });
+      }
+    });
+  </script>
+
+
+</body></html>

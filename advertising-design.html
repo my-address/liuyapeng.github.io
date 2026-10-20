@@ -1,0 +1,331 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="广告设计作品集 - 品牌Campaign、平面广告、社交媒体创意">
+  <title>广告设计 | CREATIVE STUDIO</title>
+  <link rel="stylesheet" href="css/style.css?v=20260930">
+  <style>
+    /* 广告设计专属色调 - 紫色 */
+    :root {
+      --accent-color: #7b2fff;
+      --accent-glow: rgba(123, 47, 255, 0.6);
+    }
+    
+    .portfolio-hero-category {
+      border-color: var(--neon-purple);
+      color: #b88aff;
+      background: rgba(123, 47, 255, 0.1);
+    }
+    
+    .portfolio-hero-title {
+      background: linear-gradient(135deg, #7b2fff 0%, #b88aff 50%, #7b2fff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  </style>
+</head>
+<body>
+  <!-- 加载动画 -->
+  <div class="loader">
+    <div class="loader-ring"></div>
+  </div>
+
+  <!-- 全息网格背景 -->
+  <canvas id="particles-canvas"></canvas>
+  <div id="grid-overlay"></div>
+
+  <!-- 导航栏 -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">LYP<span style="color: var(--neon-cyan)">.</span>个人作品集</a>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">首页</a></li>
+        <li class="nav-dropdown">
+          <a href="#" class="nav-link active">作品展示 <span class="dropdown-arrow">▼</span></a>
+          <div class="dropdown-menu">
+            <a href="commercial-design.html" class="dropdown-item">商业设计</a>
+            <a href="advertising-design.html" class="dropdown-item">广告设计</a>
+            <a href="aigc-visual.html" class="dropdown-item">AIGC视觉创作</a>
+            <a href="aigc-comic.html" class="dropdown-item">AIGC短漫剧</a>
+            <a href="tvc-advertisement.html" class="dropdown-item">TVC广告</a>
+          </div>
+        </li>
+        <li><a href="index.html#about" class="nav-link">关于我</a></li>
+        <li><a href="index.html#contact" class="nav-link">联系我</a></li>
+      </ul>
+      <div class="mobile-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 作品Hero区域 -->
+  <section class="portfolio-hero">
+    <div class="container">
+      <span class="portfolio-hero-category reveal">✦ 广告设计</span>
+      <h1 class="portfolio-hero-title reveal">广告创意设计</h1>
+      <p class="portfolio-hero-desc reveal">
+        用创意驱动品牌增长，打造令人难忘的广告视觉体验，全方位提升品牌影响力。
+      </p>
+    </div>
+  </section>
+
+  <!-- 作品展示 -->
+  <section style="padding-top: 2rem;">
+    <div class="container">
+      <h2 class="section-title reveal">品牌Campaign</h2>
+      
+      <div class="gallery-vertical">
+        <div class="gallery-item-vertical reveal">
+          <img src="advertising-desion/张艺兴-梅赛德斯.png" alt="汽车品牌" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">汽车品牌</h4>
+          </div>
+        </div>
+        <div class="gallery-item-vertical reveal">
+          <img src="advertising-desion/刘亦菲-祖玛珑.png" alt="美妆品牌" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">美妆品牌</h4>
+          </div>
+        </div>
+        <div class="gallery-item-vertical reveal">
+          <img src="advertising-desion/迪丽热巴-半亩花田.png" alt="美妆品牌" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">美妆品牌</h4>
+          </div>
+        </div>
+        <div class="gallery-item-vertical reveal">
+          <img src="advertising-desion/佟丽娅-且初.png" alt="美妆品牌" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">美妆品牌</h4>
+          </div>
+        </div>
+        <div class="gallery-item-vertical reveal">
+          <img src="advertising-desion/赵丽颖-纪梵希.png" alt="美妆品牌" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">美妆品牌</h4>
+          </div>
+        </div>
+        <div class="gallery-item-vertical reveal">
+          <img src="advertising-desion/杨颖-听研.png" alt="美妆品牌" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">美妆品牌</h4>
+          </div>
+        </div>
+        <div class="gallery-item-vertical reveal">
+          <img src="advertising-desion/张艺兴-君佩.png" alt="美妆品牌" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">美妆品牌</h4>
+          </div>
+        </div>
+        <div class="gallery-item-vertical reveal">
+          <img src="advertising-desion/古力娜扎-参半.png" alt="美妆品牌" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">美妆品牌</h4>
+          </div>
+        </div>
+        <div class="gallery-item-vertical reveal">
+          <img src="advertising-desion/欧豪-木木柯秀.png" alt="美妆品牌" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">美妆品牌</h4>
+          </div>
+        </div>
+        <div class="gallery-item-vertical reveal">
+          <img src="advertising-desion/范丞丞-乌苏啤酒.png" alt="饮品品牌" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">饮品品牌</h4>
+          </div>
+        </div>
+        <div class="gallery-item-vertical reveal">
+          <img src="advertising-desion/赵今麦-茶百道.png" alt="饮品品牌" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">饮品品牌</h4>
+          </div>
+        </div>
+        <div class="gallery-item-vertical reveal">
+          <img src="advertising-desion/王一博-蓝芩.png" alt="蓝芩品牌" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">蓝芩品牌</h4>
+          </div>
+        </div>
+        <div class="gallery-item-vertical reveal">
+          <img src="advertising-desion/范丞丞-特步.png" alt="服装品牌" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">服装品牌</h4>
+          </div>
+        </div>
+        <div class="gallery-item-vertical reveal">
+          <img src="advertising-desion/黄景瑜-探路者.png" alt="服装品牌" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">服装品牌</h4>
+          </div>
+        </div>
+        <div class="gallery-item-vertical reveal">
+          <img src="advertising-desion/易烊千玺-华为Pura90.png" alt="手机品牌" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">手机品牌</h4>
+          </div>
+        </div>
+        <div class="gallery-item-vertical reveal">
+          <img src="advertising-desion/李昀锐-荣耀耳机.png" alt="耳机品牌" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">耳机品牌</h4>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="section-title reveal" style="margin-top: 4rem;">banner创意</h2>
+
+      <div class="gallery-horizontal">
+        <div class="gallery-item-horizontal reveal">
+          <img src="banner/NBA打球banner海报设计.jpeg" alt="体育赛事" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">体育赛事广告</h4>
+          </div>
+        </div>
+        <div class="gallery-item-horizontal reveal">
+          <img src="banner/栏上飞人陈圆将.jpeg" alt="体育赛事广告" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">体育赛事广告</h4>
+          </div>
+        </div>
+        <div class="gallery-item-horizontal reveal">
+          <img src="banner/王者荣耀亚运会夺冠海报设计.jpeg" alt="体育赛事广告" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">体育赛事广告</h4>
+          </div>
+        </div>
+        <div class="gallery-item-horizontal reveal">
+          <img src="banner/SK-II.jpeg" alt="美妆品牌" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">美妆品牌广告</h4>
+          </div>
+        </div>
+        <div class="gallery-item-horizontal reveal">
+          <img src="banner/YSL口红.jpeg" alt="美妆品牌" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">美妆品牌广告</h4>
+          </div>
+        </div>
+        <div class="gallery-item-horizontal reveal">
+          <img src="banner/洁面乳.jpeg" alt="美妆品牌广告" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">美妆品牌广告</h4>
+          </div>
+        </div>
+        <div class="gallery-item-horizontal reveal">
+          <img src="banner/小乔皮肤.jpeg" alt="游戏品牌" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">游戏广告</h4>
+          </div>
+        </div>
+        <div class="gallery-item-horizontal reveal">
+          <img src="banner/橄榄果汁.jpeg" alt="饮品品牌广告" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">饮品品牌广告</h4>
+          </div>
+        </div>
+        <div class="gallery-item-horizontal reveal">
+          <img src="banner/深色系珠宝设计banner海报设计.jpeg" alt="珠宝品牌广告" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">珠宝品牌广告</h4>
+          </div>
+        </div>
+        <div class="gallery-item-horizontal reveal">
+          <img src="banner/牛角包芝士火腿.jpeg" alt="快餐品牌广告" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">快餐品牌广告</h4>
+          </div>
+        </div>
+        <div class="gallery-item-horizontal reveal">
+          <img src="banner/猫粮.jpeg" alt="猫粮品牌广告" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">猫粮品牌广告</h4>
+          </div>
+        </div>
+        <div class="gallery-item-horizontal reveal">
+          <img src="banner/番石榴.png" alt="水果广告" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">水果广告</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 更多作品引导 -->
+  <section>
+    <div class="container" style="text-align: center;">
+      <h2 class="section-title reveal">探索更多作品</h2>
+      <p class="section-subtitle reveal">发现其他创意领域的精彩作品</p>
+      
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;" class="reveal">
+        <a href="commercial-design.html" class="btn-neon">商业设计 →</a>
+        <a href="aigc-visual.html" class="btn-neon">AIGC视觉创作 →</a>
+        <a href="aigc-comic.html" class="btn-neon">AIGC短漫剧 →</a>
+        <a href="tvc-advertisement.html" class="btn-neon">TVC广告 →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h3>CREATIVE.STUDIO</h3>
+          <p>专注于商业设计、广告创意、AIGC视觉艺术与AIGC漫剧制作。用科技与艺术的碰撞，打造具有未来感的视觉体验。</p>
+          <div class="social-links">
+            <a href="https://v.douyin.com/aJxr5zO6Y_8/ 3@8.com :5pm" class="social-link">抖音</a>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h4>作品分类</h4>
+          <ul>
+            <li><a href="commercial-design.html">商业设计</a></li>
+            <li><a href="advertising-design.html">广告设计</a></li>
+            <li><a href="aigc-visual.html">AIGC视觉创作</a></li>
+            <li><a href="aigc-comic.html">AIGC短漫剧</a></li>
+            <li><a href="tvc-advertisement.html">TVC广告</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>快速链接</h4>
+          <ul>
+            <li><a href="index.html">首页</a></li>
+            <li><a href="index.html#about">关于我</a></li>
+            <li><a href="index.html#categories">作品展示</a></li>
+            <li><a href="index.html#contact">联系我</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>联系方式</h4>
+          <ul>
+            <li><a href="mailto:hello@creativestudio.com">18438353842@163.com</a></li>
+            <li><a href="tel:+8618438353842">+86 184 3835 3842</a></li>
+            <li>中国 · 郑州</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 CREATIVE.STUDIO. All rights reserved. | 用创意点亮未来</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 返回顶部 -->
+  <a href="#" class="back-to-top">↑</a>
+
+  <script src="js/main.js?v=20260930"></script>
+</body>
+</html>

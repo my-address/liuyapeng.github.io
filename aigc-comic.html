@@ -1,0 +1,386 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AIGC短漫剧作品集 - AI辅助漫画创作、动态漫剧、条漫">
+  <title>AIGC短漫剧 | CREATIVE STUDIO</title>
+  <link rel="stylesheet" href="css/style.css?v=20260930">
+  <style>
+    /* AIGC短漫剧专属色调 - 金色 */
+    :root {
+      --accent-color: #ffd700;
+      --accent-glow: rgba(255, 215, 0, 0.6);
+    }
+    
+    .portfolio-hero-category {
+      border-color: #ffd700;
+      color: #ffd700;
+      background: rgba(255, 215, 0, 0.1);
+    }
+    
+    .portfolio-hero-title {
+      background: linear-gradient(135deg, #ffd700 0%, #ffed4e 50%, #ffd700 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  </style>
+</head>
+<body>
+  <!-- 加载动画 -->
+  <div class="loader">
+    <div class="loader-ring"></div>
+  </div>
+
+  <!-- 全息网格背景 -->
+  <canvas id="particles-canvas"></canvas>
+  <div id="grid-overlay"></div>
+
+  <!-- 导航栏 -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">LYP<span style="color: var(--neon-cyan)">.</span>个人作品集</a>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">首页</a></li>
+        <li class="nav-dropdown">
+          <a href="#" class="nav-link active">作品展示 <span class="dropdown-arrow">▼</span></a>
+          <div class="dropdown-menu">
+            <a href="commercial-design.html" class="dropdown-item">商业设计</a>
+            <a href="advertising-design.html" class="dropdown-item">广告设计</a>
+            <a href="aigc-visual.html" class="dropdown-item">AIGC视觉创作</a>
+            <a href="aigc-comic.html" class="dropdown-item">AIGC短漫剧</a>
+            <a href="tvc-advertisement.html" class="dropdown-item">TVC广告</a>
+          </div>
+        </li>
+        <li><a href="index.html#about" class="nav-link">关于我</a></li>
+        <li><a href="index.html#contact" class="nav-link">联系我</a></li>
+      </ul>
+      <div class="mobile-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 作品Hero区域 -->
+  <section class="portfolio-hero">
+    <div class="container">
+      <span class="portfolio-hero-category reveal">❖ AIGC短漫剧</span>
+      <h1 class="portfolio-hero-title reveal">AIGC短漫剧创作</h1>
+      <p class="portfolio-hero-desc reveal">
+        用AI赋能漫画创作，打造高质量的动态漫剧和条漫作品。
+        从剧本策划到视觉呈现，探索AI时代漫画创作的全新可能。
+      </p>
+    </div>
+  </section>
+
+  <!-- 作品展示 -->
+  <section style="padding-top: 2rem;">
+    <div class="container">
+      <h2 class="section-title reveal">大女主现实爽剧系列</h2>
+      <p class="section-subtitle reveal">现实女性逆袭大女主系列漫剧</p>
+      
+      <div class="portfolio-gallery">
+        <div class="gallery-item reveal">
+          <video src="manju/comic-01.mp4" poster = "manju/fkbm.jpeg" controls style="width:100%;height:100%;object-fit:cover;"></video>
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">第一集：病了，就是废人</h4>
+          </div>
+        </div>
+        <div class="gallery-item reveal">
+          <video src="manju/comic-02.mp4" poster = "manju/fkbm.jpeg" controls style="width:100%;height:100%;object-fit:cover;"></video>
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">第二集：平静的离婚宣告</h4>
+          </div>
+        </div>
+        <div class="gallery-item reveal">
+          <video src="manju/comic-03.mp4" poster = "manju/fkbm.jpeg" controls style="width:100%;height:100%;object-fit:cover;"></video>
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">第三集：净身出户，雨夜无家可归</h4>
+          </div>
+        </div>
+        <div class="gallery-item reveal">
+          <video src="manju/comic-04.mp4" poster = "manju/fkbm.jpeg" controls style="width:100%;height:100%;object-fit:cover;"></video>
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">第四集：打碎的铁饭碗，自己造</h4>
+          </div>
+        </div>
+        <div class="gallery-item reveal">
+          <video src="manju/comic-05.mp4" poster = "manju/fkbm.jpeg" controls style="width:100%;height:100%;object-fit:cover;"></video>
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">第五集：第一笔钱，被看见的设计</h4>
+          </div>
+        </div>
+        <div class="gallery-item reveal">
+          <video src="manju/comic-06.mp4" poster = "manju/fkbm.jpeg" controls style="width:100%;height:100%;object-fit:cover;"></video>
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">第六集：不撕逼的反击，战场转移</h4>
+          </div>
+        </div>
+        <div class="gallery-item reveal">
+          <video src="manju/comic-07.mp4" poster = "manju/fkbm.jpeg" controls style="width:100%;height:100%;object-fit:cover;"></video>
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">第七集：撕破脸皮，断我生路？</h4>
+          </div>
+        </div>
+        <div class="gallery-item reveal">
+          <video src="manju/comic-08.mp4" poster = "manju/fkbm.jpeg" controls style="width:100%;height:100%;object-fit:cover;"></video>
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">第八集：不靠眼泪，靠实力</h4>
+          </div>
+        </div>
+        <div class="gallery-item reveal">
+          <video src="manju/comic-09.mp4" poster = "manju/fkbm.jpeg" controls style="width:100%;height:100%;object-fit:cover;"></video>
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">第九集：联名试推，暗箭难防</h4>
+          </div>
+        </div>
+        <div class="gallery-item reveal">
+          <video src="manju/comic-10.mp4" poster = "manju/fkbm.jpeg" controls style="width:100%;height:100%;object-fit:cover;"></video>
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">第十集：不靠施舍，我的名字是设计师</h4>
+          </div>
+        </div>
+        <div class="gallery-item reveal">
+          <video src="manju/comic-11.mp4" poster = "manju/fkbm.jpeg" controls style="width:100%;height:100%;object-fit:cover;"></video>
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">第十一集：我的名字，比你的施舍值钱</h4>
+          </div>
+        </div>
+        <div class="gallery-item reveal">
+          <video src="manju/comic-12.mp4" poster = "manju/fkbm.jpeg" controls style="width:100%;height:100%;object-fit:cover;"></video>
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">第十二集：被女儿戳穿的 "好爸爸"</h4>
+          </div>
+        </div>
+        <div class="gallery-item reveal">
+          <video src="manju/comic-13.mp4" poster = "manju/fkbm.jpeg" controls style="width:100%;height:100%;object-fit:cover;"></video>
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">第十三集：她长出了自己的名字</h4>
+          </div>
+        </div>
+        <div class="gallery-item reveal">
+          <video src="manju/comic-14.mp4" poster = "manju/fkbm.jpeg" controls style="width:100%;height:100%;object-fit:cover;"></video>
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">第十四集：感谢那个一无所有的夜晚</h4>
+          </div>
+        </div>
+        <div class="gallery-item reveal">
+          <video src="manju/comic-15.mp4" poster = "manju/fkbm.jpeg" controls style="width:100%;height:100%;object-fit:cover;"></video>
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">第十五集：你不过是被短暂选中</h4>
+          </div>
+        </div>
+        <div class="gallery-item reveal">
+          <video src="manju/comic-16.mp4" poster = "manju/fkbm.jpeg" controls style="width:100%;height:100%;object-fit:cover;"></video>
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">第十六集：最致命的底牌</h4>
+          </div>
+        </div>
+        <div class="gallery-item reveal">
+          <video src="manju/comic-17.mp4" poster = "manju/fkbm.jpeg" controls style="width:100%;height:100%;object-fit:cover;"></video>
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">第十七集：无可挽回的败局</h4>
+          </div>
+        </div>
+        <div class="gallery-item reveal">
+          <video src="manju/comic-18.mp4" poster = "manju/fkbm.jpeg" controls style="width:100%;height:100%;object-fit:cover;"></video>
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">第十八集：灯火辉煌的未来</h4>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="section-title reveal" style="margin-top: 4rem;">赛博系列</h2>
+      <p class="section-subtitle reveal">赛博朋克风格悬疑漫画</p>
+
+      <div class="portfolio-gallery">
+        <div class="gallery-item reveal">
+          <video src="video/comic-01.mp4" poster = "assets/saibo.jpeg" controls style="width:100%;height:100%;object-fit:cover;"></video>
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">《蓝烬：夜城亡命者》</h4>
+          </div>
+        </div>
+        <div class="gallery-item reveal">
+          <video src="video/comic-07.mp4" poster = "assets/saibotaiji.png" controls style="width:100%;height:100%;object-fit:cover;"></video>
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">《赛博太极.极致对决》></h4>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="section-title reveal" style="margin-top: 4rem;">治愈系条漫</h2>
+      <p class="section-subtitle reveal">温暖人心的短篇故事</p>
+
+      <div class="portfolio-gallery">
+        <div class="gallery-item reveal">
+          <video src="video/comic-02.mp4" poster = "assets/xiaozhu.jpeg" controls style = "width:100%;height:100%;object-fit:contain;background:#0a0a0f;""></video>
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">小猪减肥记</h4>
+            <p class="gallery-item-desc">治愈系日常故事</p>
+          </div>
+        </div>
+        <div class="gallery-item reveal">
+          <video src="video/comic-03.mp4" poster = "assets/oumei.jpeg" controls style="width:100%;height:100%;object-fit:cover;"></video>
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">高情商教学</h4>
+            <p class="gallery-item-desc">餐厅里的温暖瞬间</p>
+          </div>
+        </div>
+        <div class="gallery-item reveal">
+          <video src="video/comic-08.mp4" poster = "assets/chulian.jpeg" controls style="width:100%;height:100%;object-fit:cover;"></video>
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">初恋</h4>
+            <p class="gallery-item-desc">情侣约会日常</p>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="section-title reveal" style="margin-top: 4rem;">短影纪系列</h2>
+      <p class="section-subtitle reveal">以短影，记万千声色</p>
+
+      <div class="portfolio-gallery">
+        <div class="gallery-item reveal">
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a1a2e,#2d2d44,#16213e);position:relative;">
+            <video src="video/comic-04.mp4" poster = "assets/lianren.jpeg" controls style="width:100%;height:100%;object-fit:cover;"></video>
+          </div>
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">李荣浩-恋人</h4>
+          </div>
+        </div>
+        <div class="gallery-item reveal">
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#2d1b4e,#4a2c6d,#3d1a5c);position:relative;">
+            <video src="video/comic-05.mp4" poster = "assets/shangqiu.jpeg" controls style="width:100%;height:100%;object-fit:cover;"></video>
+          </div>
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">大美商丘</h4>
+            <p class="gallery-item-desc">千年商丘，一揽风华</p>
+          </div>
+        </div>
+        <div class="gallery-item reveal">
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#0d3333,#1a5c5c,#0d4a4a);position:relative;">
+            <video src="video/comic-06.mp4" poster = "assets/geren.jpeg" controls style = "width:100%;height:100%;object-fit:contain;background:#0a0a0f;"></video>
+          </div>
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">职场人状态</h4>
+            <p class="gallery-item-desc">长大后的模样</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 项目案例详情 -->
+  <section style="background: var(--bg-secondary);">
+    <div class="container">
+      <h2 class="section-title reveal">代表案例</h2>
+      <p class="section-subtitle reveal">AI辅助漫剧创作的探索与实践</p>
+      
+      <div class="project-info reveal">
+        <div class="project-description">
+          <h3 style="color: #ffd700;">大女主现实爽剧系列创作</h3>
+          <p>
+            《疯狂宝妈》是一部完全由 AI 辅助创作的都市现实短剧系列，讲述了设计师苏静雅遭遇婚姻背叛、身体伤病，离婚后带着女儿艰难创业，凭借设计实力完成自我重生的故事。
+          </p>
+          <p>
+            创作流程：首先使用AI生成故事大纲和分镜脚本，然后通过Chatgpt生成角色设定和场景概念图，
+            再经过ComfyUI进行分镜画面生成，最后进行后期处理和排版。
+          </p>
+          <p>
+            作品证明了 AI 可以成为短剧创作者的得力助手，大幅提升创作效率。
+          </p>
+        </div>
+        <div class="project-meta">
+          <div class="meta-item">
+            <div class="meta-label">项目类型</div>
+            <div class="meta-value">AIGC短篇漫剧系列</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">创作工具</div>
+            <div class="meta-value">GPT-4 / Chatgpt / ComfyUI</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">集数</div>
+            <div class="meta-value">18集</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">创作周期</div>
+            <div class="meta-value">2026.07 - 2026.09</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 更多作品引导 -->
+  <section>
+    <div class="container" style="text-align: center;">
+      <h2 class="section-title reveal">探索更多作品</h2>
+      <p class="section-subtitle reveal">发现其他创意领域的精彩作品</p>
+      
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;" class="reveal">
+        <a href="commercial-design.html" class="btn-neon">商业设计 →</a>
+        <a href="advertising-design.html" class="btn-neon">广告设计 →</a>
+        <a href="aigc-visual.html" class="btn-neon">AIGC视觉创作 →</a>
+        <a href="tvc-advertisement.html" class="btn-neon">TVC广告 →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h3>CREATIVE.STUDIO</h3>
+          <p>专注于商业设计、广告创意、AIGC视觉艺术与AIGC漫剧制作。用科技与艺术的碰撞，打造具有未来感的视觉体验。</p>
+          <div class="social-links">
+            <a href="https://v.douyin.com/aJxr5zO6Y_8/ 3@8.com :5pm" class="social-link">抖音</a>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h4>作品分类</h4>
+          <ul>
+            <li><a href="commercial-design.html">商业设计</a></li>
+            <li><a href="advertising-design.html">广告设计</a></li>
+            <li><a href="aigc-visual.html">AIGC视觉创作</a></li>
+            <li><a href="aigc-comic.html">AIGC短漫剧</a></li>
+            <li><a href="tvc-advertisement.html">TVC广告</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>快速链接</h4>
+          <ul>
+            <li><a href="index.html">首页</a></li>
+            <li><a href="index.html#about">关于我</a></li>
+            <li><a href="index.html#categories">作品展示</a></li>
+            <li><a href="index.html#contact">联系我</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>联系方式</h4>
+          <ul>
+            <li><a href="mailto:hello@creativestudio.com">18438353842@163.com</a></li>
+            <li><a href="tel:+8618438353842">+86 184 3835 3842</a></li>
+            <li>中国 · 郑州</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 CREATIVE.STUDIO. All rights reserved. | 用创意点亮未来</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 返回顶部 -->
+  <a href="#" class="back-to-top">↑</a>
+
+  <script src="js/main.js?v=20260930"></script>
+</body>
+</html>

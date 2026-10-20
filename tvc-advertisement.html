@@ -1,0 +1,207 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TVC广告作品集 - 产品宣传片、品牌形象片、创意短视频">
+  <title>TVC广告 | CREATIVE STUDIO</title>
+  <link rel="stylesheet" href="css/style.css?v=20260930">
+  <style>
+    /* TVC广告专属色调 - 橙色 */
+    :root {
+      --accent-color: #ff6b35;
+      --accent-glow: rgba(255, 107, 53, 0.6);
+    }
+    
+    .portfolio-hero-category {
+      border-color: #ff6b35;
+      color: #ff6b35;
+      background: rgba(255, 107, 53, 0.1);
+    }
+    
+    .portfolio-hero-title {
+      background: linear-gradient(135deg, #ff6b35 0%, #ffa500 50%, #ff6b35 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  </style>
+</head>
+<body>
+  <!-- 加载动画 -->
+  <div class="loader">
+    <div class="loader-ring"></div>
+  </div>
+
+  <!-- 全息网格背景 -->
+  <canvas id="particles-canvas"></canvas>
+  <div id="grid-overlay"></div>
+
+  <!-- 导航栏 -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">LYP<span style="color: var(--neon-cyan)">.</span>个人作品集</a>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">首页</a></li>
+        <li class="nav-dropdown">
+          <a href="#" class="nav-link active">作品展示 <span class="dropdown-arrow">▼</span></a>
+          <div class="dropdown-menu">
+            <a href="commercial-design.html" class="dropdown-item">商业设计</a>
+            <a href="advertising-design.html" class="dropdown-item">广告设计</a>
+            <a href="aigc-visual.html" class="dropdown-item">AIGC视觉创作</a>
+            <a href="aigc-comic.html" class="dropdown-item">AIGC短漫剧</a>
+            <a href="tvc-advertisement.html" class="dropdown-item">TVC广告</a>
+          </div>
+        </li>
+        <li><a href="index.html#about" class="nav-link">关于我</a></li>
+        <li><a href="index.html#contact" class="nav-link">联系我</a></li>
+      </ul>
+      <div class="mobile-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 作品Hero区域 -->
+  <section class="portfolio-hero">
+    <div class="container">
+      <span class="portfolio-hero-category reveal">▶ TVC广告</span>
+      <h1 class="portfolio-hero-title reveal">TVC广告制作</h1>
+      <p class="portfolio-hero-desc reveal">
+        用影像讲述品牌故事，打造具有传播力的商业影片。
+        从创意策划到后期制作，提供全流程TVC广告制作服务。
+      </p>
+    </div>
+  </section>
+
+  <!-- 作品展示 -->
+  <section style="padding-top: 2rem;">
+    <div class="container">
+      <h2 class="section-title reveal">产品宣传片</h2>
+      <p class="section-subtitle reveal">用视觉语言诠释产品魅力</p>
+      
+      <div class="portfolio-gallery">
+        <div class="gallery-item reveal">
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a1a2e,#2d2d5a,#1a1a3e);position:relative;">
+            <video src = "video/tvc-03.mp4" poster = "assets/bijiben.jpeg" controls style = "width:100%;height:100%;object-fit:cover;"></video>
+          </div>
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">笔记本产品宣传片</h4>
+          </div>
+        </div>
+        <div class="gallery-item reveal">
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#2d1b4e,#5a2d8a,#3d1a6e);position:relative;">
+            <video src = "video/tvc-04.mp4" poster = "assets/erji.jpeg" controls style = "width:100%;height:100%;object-fit:cover;"></video>
+          </div>
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">耳机产品宣传片</h4>
+          </div>
+        </div>
+        <div class="gallery-item reveal">
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#0d2d3e,#1a5a6e,#0d3d4e);position:relative;">
+            <video src = "video/tvc-01.mp4" poster = "assets/micheng.jpeg" controls style = "width:100%;height:100%;object-fit:cover;"></video>
+          </div>
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">水果宣传片</h4>
+          </div>
+        </div>
+        <div class="gallery-item reveal">
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#4e1b2d,#8a2d5a,#6e1a3d);position:relative;">
+            <video src = "video/tvc-02.mp4" poster = "assets/xiangshui.jpeg" controls style = "width:100%;height:100%;object-fit:cover;"></video>
+          </div>
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">美妆产品广告</h4>
+          </div>
+        </div>
+        <div class="gallery-item reveal">
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#1b4e3d,#2d8a6e,#1a6e5a);position:relative;">
+            <video src = "video/tvc-05.mp4" poster = "assets/lvcha.jpeg" controls style = "width:100%;height:100%;object-fit:cover;"></video>
+          </div>
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">饮料产品广告</h4>
+          </div>
+        </div>
+        <div class="gallery-item reveal">
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#4e3d1b,#8a6e2d,#6e5a1a);position:relative;">
+            <video src = "video/tvc-06.mp4" poster = "assets/benchi.jpeg" controls style = "width:100%;height:100%;object-fit:cover;"></video>
+          </div>
+          <div class="gallery-item-info">
+            <h4 class="gallery-item-title">汽车品牌广告</h4>
+          </div>
+        </div>
+      </div>
+
+
+
+  <!-- 更多作品引导 -->
+  <section>
+    <div class="container" style="text-align: center;">
+      <h2 class="section-title reveal">探索更多作品</h2>
+      <p class="section-subtitle reveal">发现其他创意领域的精彩作品</p>
+      
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;" class="reveal">
+        <a href="commercial-design.html" class="btn-neon">商业设计 →</a>
+        <a href="advertising-design.html" class="btn-neon">广告设计 →</a>
+        <a href="aigc-visual.html" class="btn-neon">AIGC视觉创作 →</a>
+        <a href="aigc-comic.html" class="btn-neon">AIGC短漫剧 →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h3>CREATIVE.STUDIO</h3>
+          <p>专注于商业设计、广告创意、AIGC视觉艺术与AIGC漫剧制作。用科技与艺术的碰撞，打造具有未来感的视觉体验。</p>
+          <div class="social-links">
+            <a href="https://v.douyin.com/aJxr5zO6Y_8/ 3@8.com :5pm" class="social-link">抖音</a>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h4>作品分类</h4>
+          <ul>
+            <li><a href="commercial-design.html">商业设计</a></li>
+            <li><a href="advertising-design.html">广告设计</a></li>
+            <li><a href="aigc-visual.html">AIGC视觉创作</a></li>
+            <li><a href="aigc-comic.html">AIGC短漫剧</a></li>
+            <li><a href="tvc-advertisement.html">TVC广告</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>快速链接</h4>
+          <ul>
+            <li><a href="index.html">首页</a></li>
+            <li><a href="index.html#about">关于我</a></li>
+            <li><a href="index.html#categories">作品展示</a></li>
+            <li><a href="index.html#contact">联系我</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>联系方式</h4>
+          <ul>
+            <li><a href="mailto:hello@creativestudio.com">18438353842@163.com</a></li>
+            <li><a href="tel:+8618438353842">+86 184 3835 3842</a></li>
+            <li>中国 · 郑州</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 CREATIVE.STUDIO. All rights reserved. | 用创意点亮未来</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 返回顶部 -->
+  <a href="#" class="back-to-top">↑</a>
+
+  <script src="js/main.js?v=20260930"></script>
+</body>
+</html>
